@@ -1,8 +1,6 @@
-//#include "encryption.h"
 #include "averageColor.cpp"
 #include <iostream>
 #include <cmath>
-//#include <bitset>   // uncomment to print binary values
 using namespace std;
 
 
@@ -19,7 +17,6 @@ class passwordEntry {
 
         // one variable each for an encrypted/decrypted password
         string encryptedPW;
-        string decryptedPW;     // if encrypting, this will start as the entered password
 
         // private key to be determined by the target pixel function
         unsigned int key;
@@ -68,18 +65,6 @@ class passwordEntry {
                 password[i] = (password[i] ^ RGB[(i + 3) % 3]);
             }
 
-            
-            /*
-            // typecast and copy contents of buffer back to string
-            bitset<32> bitbuf = 0;
-            char charbuf = 0;
-            i = 0;
-            for (i; i < password.length(); i++) {
-                password[i] = (static_cast<unsigned char>(buf[i]));
-                cout << hex << buf[i] << dec << " " << hex << static_cast<unsigned char>(password[i]) << dec << endl;
-                cout << bitset<32>(buf[i]) << " " << bitset<32>(password[i]) << endl;
-            }
-            */
 
             /*
             
@@ -94,7 +79,7 @@ class passwordEntry {
             whenever bit 7 is 1, instead of signing the 7th bit only. and it carries over in trying to
             AND it with 0xFF, as it constantly re-signs itself as long as the 7th bit is 1
 
-            I've never encountered this and it's making me mad so I'm storing it as an array of unsigned
+            I've never encountered this so I'm storing it as an array of unsigned
             ints instead in the main 
             
             */
@@ -104,24 +89,6 @@ class passwordEntry {
             this->finalOutput = password;
 
         }
-
-        
-        //void decrypt (string enteredPW, unsigned int avg) {
-            
-            //encryptedPW = enteredPW;
-            //key = findTarget(image, avg);
-
-            /*
-            since the encryption method is a simple XOR, the encrypt and decrypt methods are the same
-            with opposite inputs. in a later program I will implement more operations here to read from
-            a file
-            */
-
-            //encrypt(enteredPW, avg);
-
-            //this->finalOutput = decryptedPW;
-
-        //}
 
 
     public:
@@ -135,8 +102,6 @@ class passwordEntry {
 
         // (starting password, encrypt/decrypt choice)
         void beginProcess (string enteredPW, string imagePath) {
-
-            // cout << "Process has begun" << endl;
 
             // set image source, key and encrypt
             this->image = imread("images/" + imagePath);

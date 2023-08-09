@@ -140,27 +140,3 @@ unsigned int findTarget (Mat &image, unsigned int avg) {
 
 }
 
-
-/*
-
-int main (int argc, char *argv[]) {
-
-    // read image name in command line argument
-    string picture;
-    for (int j = 1; j < argc; j++) {
-        picture += argv[j];
-    }
-
-    Mat image = imread(picture);
-
-    // get and print average
-    unsigned int avg = getAvg(image);
-    cout << "Image average is " << hex << avg << dec << endl;
-
-    unsigned int targetPixel = findTarget(image);
-    cout << "Target pixel color is: " << hex << targetPixel << dec << endl;
-
-}
-
-*/
-

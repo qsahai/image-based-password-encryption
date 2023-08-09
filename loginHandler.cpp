@@ -1,8 +1,7 @@
-//#include "loginHandler.h"
+#include "loginHandler.h"
 #include "encryption.cpp"
 #include <iostream>
 #include <fstream>
-//#include <sstream>
 using namespace std;
 
 
@@ -12,8 +11,8 @@ class logInHandler {
     private:
 
 
-        // this is to count lines without using external libraries. probably not the most memory efficient
-        int getLineCount(string filePath) {
+        // read file and return line count (-1 for )
+        int getLineCount (string filePath) {
             
             int lineCount = 0;
             char c;
@@ -30,6 +29,7 @@ class logInHandler {
         }
 
 
+        // return true if username is already in databank
         bool checkForUsername (string username) {
     
             ifstream unFile;
@@ -110,7 +110,7 @@ class logInHandler {
             int lineCount = getLineCount(username);
             // cout << "Lines: " << lineCount << endl;
 
-            // read image filepath
+            // read image filepath, then read each line after for array elements
             getline(read, imagePath);
             // cout << imagePath << endl;
             for (int i = 0; i < lineCount; i++) {
