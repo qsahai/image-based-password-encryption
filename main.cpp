@@ -3,7 +3,7 @@
 
 int main () {
 
-    string username, password;
+    string username, password, imagePath;
     int choice;
 
     cout << "1. Register\n2. Login" << endl;
@@ -22,7 +22,10 @@ int main () {
             cout << "\nCreate a password: " << endl;
             cin >> password;
 
-            newLogInAttempt.attemptRegistration(username, password);
+            cout << "\nEnter the name of the image to get key from: " << endl;
+            cin >> imagePath;
+
+            newLogInAttempt.attemptRegistration(username, password, imagePath);
 
             break;
 
