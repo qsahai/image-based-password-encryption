@@ -107,6 +107,10 @@ class logInHandler {
 
             // the function will read the file named after the username
             ifstream read("data/" + username + ".txt");
+            if (read.fail()) {
+                return false;
+            }
+            
             int lineCount = getLineCount(username);
             // cout << "Lines: " << lineCount << endl;
 
