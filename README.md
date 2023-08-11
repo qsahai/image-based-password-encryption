@@ -4,6 +4,7 @@ This is a login system that utilizes an encryption algorithm based on specific p
 To make, your system must have CMake and OpenCV (the makefile requires OpenCV version 2.8.4 or later but you are permitted to change it). Then, enter the terminal commands:
 
 > cmake .
+
 > make
 
 (the cmake function only needs to be entered once even if you must rebuild the program)
