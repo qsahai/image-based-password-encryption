@@ -94,6 +94,11 @@ class logInHandler {
         bool attemptLogin (string un, string pw) {
 
             this->username = un;
+            // immediately check for username
+            if (!checkForUsername(username)) {
+                return false;
+            }
+
             this->password = pw;
 
             // entered string to compare to the read encrypted password
@@ -107,10 +112,7 @@ class logInHandler {
 
             // the function will read the file named after the username
             ifstream read("data/" + username + ".txt");
-            if (read.fail()) {
-                return false;
-            }
-            
+
             int lineCount = getLineCount(username);
             // cout << "Lines: " << lineCount << endl;
 
